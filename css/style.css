@@ -155,5 +155,25 @@ input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 8px; cur
 .bottom-nav-link.nav-inactive { color: #A3ACA0 !important; }
 
 @media (max-width: 767px) {
-    .dashboard-sidebar { display: none !important; }
+    .dashboard-sidebar {
+        position: fixed !important;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 75vw;
+        max-width: 320px;
+        z-index: 100 !important;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex !important;
+    }
+    .dashboard-sidebar.open {
+        left: 0;
+    }
+    .sidebar-backdrop {
+        position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(2px);
+        z-index: 90; opacity: 0; pointer-events: none; transition: opacity 0.3s ease-in-out;
+    }
+    .sidebar-backdrop.open {
+        opacity: 1; pointer-events: auto;
+    }
 }

@@ -44,6 +44,28 @@ D.monHistory=monH||[];D.todayMon=D.monHistory.find(m=>m.record_date===today())||
 const{data:wH}=await _supabase.from('user_wound_logs').select('*').eq('user_id',D.user.id).eq('profile_id',pid).order('record_date',{ascending:false}).limit(30);
 D.woundHistory=wH||[];
 
+
+// Mobile Hamburger Menu Logic
+const menuBtn = document.getElementById('mobile-menu-btn');
+const sidebar = document.querySelector('.dashboard-sidebar');
+const backdrop = document.getElementById('sidebar-backdrop');
+if(menuBtn && sidebar && backdrop) {
+    menuBtn.addEventListener('click', () => {
+        sidebar.classList.add('open');
+        backdrop.classList.add('open');
+    });
+    backdrop.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+        backdrop.classList.remove('open');
+    });
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            backdrop.classList.remove('open');
+        });
+    });
+}
+
 renderPage();
 });
 
