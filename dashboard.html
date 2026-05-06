@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — RuangPulih</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{sans:['Poppins','system-ui','sans-serif']}}}}</script>
+<link rel="stylesheet" href="/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<!-- VIDEO MODAL -->
+<div id="video-modal" class="fixed inset-0 z-[100] items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+<div class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl p-6 relative">
+<button onclick="closeVideoModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-gray-100 hover:bg-[#ECF2E6] text-gray-600 hover:text-[#5A6C7A] transition-all font-bold">&times;</button>
+<p class="font-extrabold text-[#728BA9] text-lg mb-4" id="vmod-title">Panduan</p>
+<div class="aspect-video rounded-2xl overflow-hidden bg-black">
+<iframe id="vmod-frame" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+
+<div class="flex min-h-screen overflow-hidden" style="background:linear-gradient(135deg,#F8FCFF 0%,#ECF2E6 50%,#F8FCFF 100%);">
+<!-- Ambient bg -->
+<div class="fixed top-0 left-[15%] w-80 h-80 rounded-full pointer-events-none" style="background:rgba(184,201,221,0.12);filter:blur(80px);"></div>
+<div class="fixed bottom-0 right-[5%] w-96 h-96 rounded-full pointer-events-none" style="background:rgba(209,217,202,0.15);filter:blur(100px);"></div>
+
+<!-- SIDEBAR -->
+<aside class="w-64 shrink-0 flex flex-col sticky top-0 h-screen z-20" style="background:rgba(255,255,255,0.68);backdrop-filter:blur(24px);border-right:1px solid rgba(255,255,255,0.9);box-shadow:4px 0 30px rgba(114,139,169,0.06);">
+<div class="px-6 py-8 shrink-0">
+<a href="/" class="flex items-center gap-3">
+<img src="/assets/images/Logo.png" alt="logo" class="h-8 opacity-80" style="mix-blend-mode:multiply;">
+<div><p class="text-xl font-extrabold leading-none" style="color:#728BA9;">Ruang<span style="color:#A3ACA0;">Pulih</span></p>
+<p class="text-[0.58rem] mt-1 uppercase tracking-widest" style="color:#A3ACA0;">Pasca-Operasi</p></div>
+</a>
+</div>
+<nav class="flex-1 px-4 flex flex-col gap-1.5 py-2 overflow-hidden">
+<a href="?page=home" data-page="home" class="nav-link nav-inactive"><svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg> Home</a>
+<a href="?page=roadmap" data-page="roadmap" class="nav-link nav-inactive"><svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9h6m-6-4h6"/></svg> Roadmap</a>
+<a href="?page=monitoring" data-page="monitoring" class="nav-link nav-inactive"><svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg> Monitoring</a>
+<a href="?page=woundlog" data-page="woundlog" class="nav-link nav-inactive"><svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg> Wound Log</a>
+<a href="?page=content" data-page="content" class="nav-link nav-inactive"><svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Library</a>
+<div class="flex-1"></div>
+<div class="border-t border-white/60 pt-2 flex flex-col gap-1.5">
+<a href="?page=profile" data-page="profile" class="nav-link nav-inactive"><svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg> Profil</a>
+<a href="#" id="logout-btn" class="nav-link nav-inactive hover:!bg-[#DAE3EC] hover:!text-[#5A6C7A]"><svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H9m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h6a3 3 0 013 3v1"/></svg> Keluar</a>
+</div>
+</nav>
+</aside>
+
+<!-- CONTENT -->
+<main class="flex-1 overflow-y-auto h-screen px-8 py-10">
+<!-- Red Flag Button -->
+<button id="red-flag-btn" onclick="document.getElementById('rf-modal').classList.remove('hidden');document.getElementById('rf-modal').classList.add('flex');"
+class="fixed top-7 right-8 z-50 flex items-center gap-2 px-5 py-2.5 rounded-full text-white font-bold text-sm transition-all transform hover:-translate-y-0.5"
+style="background:#D46A6A;box-shadow:0 8px 24px rgba(212,106,106,0.3);">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg> Red Flag
+</button>
+
+<!-- Red Flag Modal -->
+<div id="rf-modal" class="hidden fixed inset-0 z-[90] items-center justify-center p-4" style="background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);">
+<div class="bg-white rounded-3xl shadow-2xl w-full max-w-md p-8 relative">
+<button onclick="document.getElementById('rf-modal').classList.add('hidden');document.getElementById('rf-modal').classList.remove('flex');"
+class="absolute top-4 right-4 w-9 h-9 rounded-full bg-gray-100 hover:bg-[#ECF2E6] text-gray-500 hover:text-[#5A6C7A] flex items-center justify-center font-bold transition-all">&times;</button>
+<div class="flex items-center gap-3 mb-5">
+<div class="w-12 h-12 rounded-full bg-[#ECF2E6] flex items-center justify-center shrink-0"><svg class="w-6 h-6" fill="none" stroke="#728BA9" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div>
+<div><h3 class="font-extrabold text-[#5A6C7A] text-xl">Kondisi Darurat!</h3><p class="text-[#728BA9] text-sm font-medium">Segera ambil tindakan jika muncul tanda ini</p></div>
+</div>
+<ul id="rf-list" class="space-y-3 text-sm text-[#5A6C7A] font-medium mb-6"></ul>
+<a href="tel:119" class="flex items-center justify-center gap-2 py-3.5 rounded-2xl text-white font-extrabold text-lg transition-all" style="background:#D46A6A;">Hubungi 119 — IGD Darurat</a>
+</div>
+</div>
+
+<!-- Dynamic page content -->
+<div id="page-content"></div>
+</main>
+</div>
+
+<script src="/js/supabase-config.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/dashboard-data.js"></script>
+<script src="/js/dashboard-render.js"></script>
+<script src="/js/dashboard-render2.js"></script>
+<script src="/js/dashboard-events.js"></script>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>
