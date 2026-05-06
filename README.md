@@ -1,6 +1,6 @@
-# RuangPulih — Standalone Web App
+# RuangPulih — Post-Op Recovery Guide Web App
 
-Panduan rehabilitasi pasca-operasi mandiri. Dipisahkan dari medical-web monorepo.
+Panduan rehabilitasi pasca-operasi mandiri.
 
 ## Tech Stack
 - **Frontend**: Static HTML/CSS/JS + TailwindCSS CDN
