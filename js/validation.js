@@ -1,7 +1,3 @@
-// ============================================================
-// RuangPulih — Client-side Form Validation
-// ============================================================
-
 function showError(fieldId, message) {
     const errorEl = document.getElementById(fieldId + '-error');
     if (errorEl) {

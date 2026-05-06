@@ -1,5 +1,3 @@
-// RuangPulih Dashboard Renderers (loaded after dashboard.js)
-
 function renderHome(opName){
 const nm=D.userName.split(' ')[0];
 const isC=D.role==='caregiver';

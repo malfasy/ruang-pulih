@@ -1,7 +1,4 @@
-// Dashboard Event Handlers & Post-render logic
-
 function afterRender(){
-  // Checklist progress
   document.querySelectorAll('.task-checkbox').forEach(cb=>{
     cb.addEventListener('change',()=>{
       const all=document.querySelectorAll('.task-checkbox');
@@ -12,7 +9,6 @@ function afterRender(){
     });
   });
 
-  // Monitoring form
   const monForm=document.getElementById('monitoring-form');
   if(monForm){
     monForm.addEventListener('submit',async e=>{
@@ -42,7 +38,6 @@ function afterRender(){
     });
   }
 
-  // Wound log form
   const woundForm=document.getElementById('wound-form');
   const woundPhoto=document.getElementById('wound-photo');
   if(woundPhoto){
@@ -63,7 +58,6 @@ function afterRender(){
       const file=woundPhoto?.files[0];
       let imageUrl=null;
 
-      // Upload to Supabase Storage
       if(file){
         const ext=file.name.split('.').pop();
         const path=`${D.user.id}/${today()}_${Date.now()}.${ext}`;

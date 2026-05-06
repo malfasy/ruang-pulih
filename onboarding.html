@@ -9,7 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-<div class="min-h-screen bg-app flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+<div class="min-h-[100dvh] bg-app flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
 <div class="w-full max-w-5xl">
 <div class="mb-8 text-center">
 <div class="flex items-center justify-center gap-2 mb-4">
@@ -29,7 +29,6 @@
 <div class="bg-white rounded-[24px] shadow-[0_15px_50px_rgb(0,0,0,0.05)] p-6 md:p-14 min-h-[500px] flex flex-col border border-white/60 relative overflow-hidden backdrop-blur-sm shadow-xl">
 <form id="onboarding-form" class="flex-1 flex flex-col step-container justify-between h-full">
 
-<!-- STEP 0: PROFILE SELECTION -->
 <div id="step-0" class="step-block step-enter" style="display:none;">
 <div class="text-center mb-10">
 <h2 class="text-3xl md:text-4xl font-extrabold text-[#728BA9] mb-3">Pilih Profil Pemulihan</h2>
@@ -38,7 +37,6 @@
 <div id="profile-list" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10"></div>
 </div>
 
-<!-- STEP 1: ROLE -->
 <div id="step-1" class="step-block active step-enter">
 <div class="text-center mb-10">
 <h2 class="text-3xl md:text-4xl font-extrabold text-[#728BA9] mb-3">Mulai Pemulihan</h2>
@@ -64,7 +62,6 @@
 </div>
 </div>
 
-<!-- STEP 2: PERSONAL INFO -->
 <div id="step-2" class="step-block">
 <div class="text-center mb-10">
 <h2 class="text-3xl md:text-4xl font-extrabold text-[#728BA9] mb-3">Data Diri</h2>
@@ -78,7 +75,6 @@
 </div>
 </div>
 
-<!-- STEP 3: OPERATION -->
 <div id="step-3" class="step-block">
 <div class="text-center mb-10">
 <h2 class="text-3xl md:text-4xl font-extrabold text-[#728BA9] mb-3">Pemulihan pasca operasi apa?</h2>
@@ -106,7 +102,6 @@
 </div>
 </div>
 
-<!-- STEP 4: SURGERY DATE -->
 <div id="step-4" class="step-block">
 <div class="text-center mb-10">
 <h2 class="text-3xl md:text-4xl font-extrabold text-[#728BA9] mb-3">Kapan operasi dilakukan?</h2>
@@ -123,7 +118,6 @@
 </div>
 </div>
 
-<!-- STEP 5: CONDITION -->
 <div id="step-5" class="step-block">
 <div class="text-center mb-10">
 <h2 class="text-3xl md:text-4xl font-extrabold text-[#728BA9] mb-3">Kondisi Saat Ini</h2>
@@ -149,7 +143,6 @@
 </div>
 </div>
 
-<!-- Nav Buttons -->
 <div id="nav-buttons" class="pt-6 mt-auto border-t border-[#F8FCFF] flex justify-between items-center w-full">
 <button type="button" id="btn-prev" class="hidden px-8 py-4 rounded-full border border-[#DAE3EC] text-[#7F7F7F] hover:bg-[#F8FCFF] transition-all font-bold tracking-wide text-lg">Kembali</button>
 <div class="ml-auto w-full flex justify-end">

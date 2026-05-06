@@ -1,7 +1,3 @@
-// ============================================================
-// RuangPulih — Onboarding Logic (Supabase)
-// ============================================================
-
 document.addEventListener('DOMContentLoaded', async () => {
     const session = await requireAuth();
     if (!session) return;
@@ -27,7 +23,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         profileList: document.getElementById('profile-list'),
     };
 
-    // Load existing profiles
     const { data: profiles } = await _supabase
         .from('user_onboarding')
         .select('*')
@@ -37,7 +32,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     allProfiles = profiles || [];
 
     if (allProfiles.length > 0 && !isEditMode) {
-        // Show profile selection (step 0)
         document.getElementById('step-0').style.display = 'block';
         document.getElementById('step-0').classList.add('active');
         document.getElementById('step-1').classList.remove('active');
@@ -61,7 +55,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         el.profileList.innerHTML = html;
     }
 
-    // Edit mode prefill
     if (isEditMode && editProfileId) {
         const found = allProfiles.find(p => String(p.id) === editProfileId);
         if (found) prefillForm(found);
@@ -83,17 +76,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         el.progressBar.style.width = '20%';
     };
 
-    // Pain slider
     el.painSlider.addEventListener('input', (e) => { el.painVal.textContent = e.target.value; });
 
-    // Role toggle
     document.querySelectorAll('input[name="role"]').forEach(r => {
         r.addEventListener('change', () => {
             document.getElementById('patient-name-field').classList.toggle('hidden', r.value !== 'caregiver' || !r.checked);
         });
     });
 
-    // Surgery date
     el.surgeryDate.addEventListener('change', (e) => {
         if (!e.target.value) { el.dayCounter.textContent = "Silakan pilih tanggal untuk melihat status hari pemulihan."; return; }
         const sel = new Date(e.target.value); const today = new Date();
@@ -110,7 +100,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    // Validation
     function validateStep(step) {
         const container = document.getElementById(`step-${step}`);
         const inputs = container.querySelectorAll('input[required]');
@@ -143,7 +132,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     el.btnNext.addEventListener('click', () => { if (validateStep(currentStep) && currentStep < totalSteps) { updateUI(currentStep, currentStep+1); currentStep++; } });
     el.btnPrev.addEventListener('click', () => { if (currentStep > 1) { updateUI(currentStep, currentStep-1); currentStep--; } });
 
-    // Submit
     el.btnSubmit.addEventListener('click', async () => {
         if (!validateStep(currentStep)) return;
         el.btnSubmit.disabled = true;
@@ -185,7 +173,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    // Enter key
     document.getElementById('onboarding-form').addEventListener('keydown', (e) => {
         if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
             e.preventDefault();

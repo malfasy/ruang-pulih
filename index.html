@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="/css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-<body class="bg-gray-50 antialiased min-h-screen">
+<body class="bg-gray-50 antialiased min-h-[100dvh]">
 
 
 
@@ -227,20 +227,19 @@
 </style>
 
 <!-- Top Header -->
-<div class="w-full bg-[#728BA9] pt-10 pb-12 md:pb-20 relative z-40">
+<div class="w-full bg-white/80 backdrop-blur-xl border-b border-[#DAE3EC]/50 shadow-sm py-4 relative z-40">
     <header class="max-w-6xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center relative z-10 gap-4">
         <div class="flex items-center gap-4">
-            <img src="assets/images/Logo.png" alt="RuangPulih Logo" class="h-12 opacity-90 brightness-0 invert">
+            <img src="assets/images/Logo.png" alt="RuangPulih Logo" class="h-10 opacity-80 mix-blend-multiply filter grayscale-[20%]">
             <div class="flex flex-col justify-center translate-y-0.5 mt-1">
-                <span class="font-extrabold text-3xl tracking-tight leading-none text-white">Ruang<span
-                        class="text-white/80">Pulih</span></span>
-                <span class="text-[10px] text-white/70 font-bold tracking-widest mt-1.5 uppercase">Pasca-Operasi &
-                    Rehabilitasi Mandiri</span>
+                <span class="font-extrabold text-3xl tracking-tight leading-none text-[#728BA9]">Ruang<span
+                        class="text-[#A3ACA0]">Pulih</span></span>
+                
             </div>
         </div>
         <div>
             <a href="/onboarding.html" id="dashboard-btn"
-                class="cta-link px-8 py-3 rounded-full border border-white/50 text-white hover:bg-white/10 transition-all font-bold text-xs tracking-wider uppercase shadow-sm">Masuk/Daftar</a>
+                class="cta-link px-6 py-2.5 rounded-full border-2 border-[#DAE3EC] text-[#728BA9] hover:border-[#728BA9] hover:bg-[#F8FCFF] transition-all font-bold text-[10px] md:text-xs tracking-wider uppercase">Masuk/Daftar</a>
         </div>
     </header>
 
@@ -253,7 +252,7 @@
 </div>
 
 <!-- Global Floating Nav -->
-<div class="w-full flex justify-center sticky top-4 z-50 pointer-events-none -mb-12 pt-8">
+<div class="w-full flex justify-center sticky top-4 z-50 pointer-events-none mt-4 md:mt-8 -mb-12">
     <nav id="floating-nav"
         class="bg-white rounded-2xl shadow-[0_10px_40px_rgb(0,0,0,0.06)] px-6 py-4 md:px-12 md:py-5 flex overflow-x-auto scrollbar-hide whitespace-nowrap items-center justify-start md:justify-center gap-6 md:gap-10 font-medium text-sm border border-white pointer-events-auto w-[95vw] md:w-auto max-w-[100vw]">
         <a href="#home" class="text-[#728BA9] font-bold hover:text-[#A3ACA0] transition-colors">Home</a>
@@ -279,40 +278,22 @@
     </div>
 
     <!-- Abstract shapes replaced with surgical doodles -->
-    <div class="absolute top-[10%] left-[5%] w-24 h-24 text-[#728BA9]/20 animate-floating pointer-events-none"
-        style="animation-duration: 6s; transform: rotate(15deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10 2.5a1.5 1.5 0 00-3 0v4a5.5 5.5 0 0011 0v-4a1.5 1.5 0 00-3 0" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12.5 12v3a5.5 5.5 0 01-11 0v-2" />
-            <circle cx="10" cy="18" r="4" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-    </div>
-    <div class="absolute top-[40%] right-[25%] w-20 h-20 text-[#A3ACA0]/20 animate-floating pointer-events-none"
-        style="animation-duration: 5s; transform: rotate(-10deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M18 2l4 4M17 7l3-3M19 9L8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6" />
-        </svg>        
-    </div>
-    <div class="absolute bottom-[20%] left-[30%] w-16 h-16 text-[#728BA9]/15 animate-floating pointer-events-none"
-        style="animation-duration: 7s; transform: rotate(20deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12A9 9 0 013 12a9 9 0 0118 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h2l1-3 2 6 1-3h2" />
-        </svg>
-    </div>
+    
+    
+    
 
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center relative gap-8 text-center md:text-left z-10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center relative gap-5 md:gap-8 text-center md:text-left z-10">
         <div
             class="w-full md:w-1/2 space-y-8 reveal-left opacity-0 -translate-x-16 transition-all duration-1000 ease-out">
-            <h1 class="text-3xl md:text-5xl font-extrabold text-[#728BA9] leading-tight drop-shadow-sm">
+            <h1 class="text-[1.75rem] md:text-5xl leading-tight font-extrabold text-[#728BA9] leading-tight drop-shadow-sm">
                 Post-Op Recovery.<br>Safe And Monitored<br>From Home.
             </h1>
-            <p class="text-[#7F7F7F] max-w-md mx-auto md:mx-0 text-lg font-medium leading-relaxed">
+            <p class="text-[#7F7F7F] max-w-md mx-auto md:mx-0 text-sm md:text-lg font-medium leading-relaxed">
                 Panduan rehabilitasi pasca-operasi mandiri langkah demi langkah untuk mencegah komplikasi dan
                 mempercepat kesembuhan keluarga tercinta Anda.
             </p>
             <a href="#about"
-                class="inline-block px-8 py-3.5 rounded-full bg-[#B8C9DD] text-white font-bold text-base md:text-lg hover:bg-[#728BA9] transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                class="inline-block px-6 py-3 md:px-8 md:py-3.5 rounded-full bg-[#B8C9DD] text-white font-bold text-base md:text-lg hover:bg-[#728BA9] transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1">
                 Pelajari Lebih Lanjut
             </a>
         </div>
@@ -333,27 +314,15 @@
 
 <!-- About Us Section -->
 <section id="about"
-    class="w-full min-h-screen flex flex-col justify-center py-16 px-4 md:py-32 md:px-8 relative z-10 bg-[#FFFFFF] overflow-hidden">
+    class="w-full min-h-[100dvh] flex flex-col justify-center py-16 px-4 md:py-32 md:px-8 relative z-10 bg-[#FFFFFF] overflow-hidden">
     <!-- Abstract Shapes replaced with surgical doodles -->
-    <div class="absolute top-[15%] left-[5%] w-32 md:w-48 text-[#728BA9]/10 animate-floating pointer-events-none" style="transform: rotate(-15deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 14h6M9 10h6m-6 8h6" />
-        </svg>
-    </div>
-    <div class="absolute bottom-[10%] right-[10%] w-24 h-24 text-[#7F7F7F]/10 animate-floating pointer-events-none"
-        style="animation-duration: 7s; transform: rotate(10deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-            <circle cx="6" cy="6" r="3" stroke-linecap="round" stroke-linejoin="round" />
-            <circle cx="6" cy="18" r="3" stroke-linecap="round" stroke-linejoin="round" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12" />
-        </svg>
-    </div>
+    
+    
 
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 relative z-10">
         <div
             class="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left space-y-6 reveal-up opacity-0 translate-y-16 transition-all duration-1000">
-            <h2 class="text-4xl font-extrabold text-[#A3ACA0]">Why Do We <br><span class="text-[#728BA9]">Exist?</span>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-[#A3ACA0]">Why Do We <br><span class="text-[#728BA9]">Exist?</span>
             </h2>
             <img src="assets/images/Logo.png" alt="Heart Icon" class="w-48 mt-4 animate-floating">
         </div>
@@ -380,24 +349,14 @@
 
 <!-- Risky Section -->
 <section
-    class="w-full min-h-screen flex flex-col justify-center py-16 px-4 md:py-32 md:px-8 text-center relative z-10 bg-[#ECF2E6] overflow-hidden"
+    class="w-full min-h-[100dvh] flex flex-col justify-center py-16 px-4 md:py-32 md:px-8 text-center relative z-10 bg-[#ECF2E6] overflow-hidden"
     id="problem">
     <!-- Abstract Shapes replaced with surgical doodles -->
-    <div class="absolute top-[5%] right-[5%] w-32 md:w-48 text-[#728BA9]/10 animate-floating pointer-events-none" style="transform: rotate(12deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 20.5l10-10a4.95 4.95 0 10-7-7l-10 10a4.95 4.95 0 107 7z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.5 8.5l7 7" />
-        </svg>
-    </div>
-    <div class="absolute bottom-[10%] left-[10%] w-20 h-20 text-[#728BA9]/10 animate-floating pointer-events-none" style="transform: rotate(-20deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12A9 9 0 013 12a9 9 0 0118 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h2l1-3 2 6 1-3h2" />
-        </svg>
-    </div>
+    
+    
 
     <div class="reveal-up opacity-0 translate-y-16 transition-all duration-1000 relative z-10">
-        <h2 class="text-4xl font-extrabold text-[#7F7F7F] mb-3">Why Is <span class="text-[#728BA9]">Home Recovery</span>
+        <h2 class="text-2xl md:text-4xl font-extrabold text-[#7F7F7F] mb-3">Why Is <span class="text-[#728BA9]">Home Recovery</span>
             Risky?</h2>
         <p class="text-[#BAC7B6] font-bold mb-16 uppercase tracking-widest text-sm">Menurut Beberapa Studi Empiris</p>
     </div>
@@ -408,7 +367,7 @@
             class="reveal-stagger-child opacity-0 translate-y-16 transition-all duration-700 bg-white/60 backdrop-blur-3xl border border-white p-10 rounded-3xl hover:-translate-y-4 group shadow-[0_10px_40px_rgb(0,0,0,0.03)] focus:outline-none">
             <div
                 class="text-[#BAC7B6] mb-6 flex justify-center transform transition-transform duration-500 group-hover:scale-110">
-                <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-sm">
+                <div class="w-14 h-14 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center shadow-sm">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -426,7 +385,7 @@
             class="reveal-stagger-child opacity-0 translate-y-16 transition-all duration-700 bg-white/60 backdrop-blur-3xl border border-white p-10 rounded-3xl hover:-translate-y-4 delay-100 group shadow-[0_10px_40px_rgb(0,0,0,0.03)] focus:outline-none">
             <div
                 class="text-[#BAC7B6] mb-6 flex justify-center transform transition-transform duration-500 group-hover:scale-110">
-                <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-sm">
+                <div class="w-14 h-14 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center shadow-sm">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
@@ -445,7 +404,7 @@
             class="reveal-stagger-child opacity-0 translate-y-16 transition-all duration-700 bg-white/60 backdrop-blur-3xl border border-white p-10 rounded-3xl hover:-translate-y-4 delay-200 group shadow-[0_10px_40px_rgb(0,0,0,0.03)] focus:outline-none">
             <div
                 class="text-[#BAC7B6] mb-6 flex justify-center transform transition-transform duration-500 group-hover:scale-110">
-                <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-sm">
+                <div class="w-14 h-14 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center shadow-sm">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
@@ -471,23 +430,14 @@
 
 <!-- Features Support Section -->
 <section id="services"
-    class="w-full min-h-screen flex flex-col justify-center relative px-8 py-32 z-10 bg-[#FFFFFF] overflow-hidden">
+    class="w-full min-h-[100dvh] flex flex-col justify-center relative px-8 py-32 z-10 bg-[#FFFFFF] overflow-hidden">
     <!-- Abstract Shapes replaced with surgical doodles -->
-    <div class="absolute top-[10%] left-[10%] w-32 md:w-40 text-[#728BA9]/10 animate-floating pointer-events-none" style="transform: rotate(-20deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14 10l-4 4M10 10l4 4" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.5 14.5l6-6a5 5 0 017 7l-6 6a5 5 0 01-7-7z" />
-        </svg>
-    </div>
-    <div class="absolute bottom-[20%] right-[15%] w-24 h-24 text-[#728BA9]/10 animate-floating pointer-events-none" style="animation-duration: 6s; transform: rotate(15deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-        </svg>
-    </div>
+    
+    
 
     <div
         class="bg-white/80 backdrop-blur-2xl border border-white mx-auto p-12 md:p-20 max-w-6xl text-center relative z-10 reveal-scale opacity-0 scale-95 transition-all duration-1000 mb-10 w-full rounded-[3rem] shadow-[0_20px_60px_rgba(0,0,0,0.04)]">
-        <h2 class="text-4xl font-extrabold text-[#7F7F7F] mb-3">How Will <span class="text-[#728BA9]">Ruang<span
+        <h2 class="text-2xl md:text-4xl font-extrabold text-[#7F7F7F] mb-3">How Will <span class="text-[#728BA9]">Ruang<span
                     class="text-[#A3ACA0]">Pulih</span></span> Support You?</h2>
         <p class="text-[#A3ACA0] font-bold tracking-wider text-sm uppercase">Layanan Utama RuangPulih</p>
     </div>
@@ -569,25 +519,14 @@
 
 <!-- How it works steps -->
 <section id="how-it-works"
-    class="w-full min-h-screen flex flex-col justify-center py-16 px-4 md:py-32 md:px-8 relative z-10 bg-[#F8FCFF] overflow-hidden">
+    class="w-full min-h-[100dvh] flex flex-col justify-center py-16 px-4 md:py-32 md:px-8 relative z-10 bg-[#F8FCFF] overflow-hidden">
     <!-- Abstract Shapes replaced with surgical doodles -->
-    <div class="absolute top-[5%] right-[10%] w-32 md:w-48 text-[#728BA9]/10 animate-floating pointer-events-none" style="transform: rotate(10deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10 2.5a1.5 1.5 0 00-3 0v4a5.5 5.5 0 0011 0v-4a1.5 1.5 0 00-3 0" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12.5 12v3a5.5 5.5 0 01-11 0v-2" />
-            <circle cx="10" cy="18" r="4" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-    </div>
-    <div class="absolute bottom-[10%] left-[10%] w-24 h-24 text-[#728BA9]/10 animate-floating pointer-events-none" style="animation-duration: 7s; transform: rotate(-15deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 14h6M9 10h6m-6 8h6" />
-        </svg>
-    </div>
+    
+    
 
     <div
         class="max-w-6xl mx-auto text-center mb-16 w-full reveal-up opacity-0 translate-y-16 transition-all duration-1000 relative z-10">
-        <h2 class="text-4xl font-extrabold text-[#728BA9]">How Does <span class="text-[#A3ACA0]">RuangPulih</span> Work?
+        <h2 class="text-2xl md:text-4xl font-extrabold text-[#728BA9]">How Does <span class="text-[#A3ACA0]">RuangPulih</span> Work?
         </h2>
         <p class="text-lg text-[#7F7F7F] mt-4 font-bold">Langkah mudah menggunakan RuangPulih.</p>
     </div>
@@ -653,23 +592,13 @@
 
 <!-- Team Section -->
 <section id="team"
-    class="w-full min-h-screen flex flex-col justify-center py-16 px-4 md:py-32 md:px-8 relative z-10 bg-[#DAE3EC] overflow-hidden">
+    class="w-full min-h-[100dvh] flex flex-col justify-center py-16 px-4 md:py-32 md:px-8 relative z-10 bg-[#DAE3EC] overflow-hidden">
     <!-- Abstract Shapes replaced with surgical doodles -->
-    <div class="absolute top-[5%] right-[5%] w-32 md:w-48 text-[#FFFFFF]/25 animate-floating pointer-events-none" style="transform: rotate(20deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M18 2l4 4M17 7l3-3M19 9L8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6" />
-        </svg>
-    </div>
-    <div class="absolute bottom-[5%] left-[10%] w-24 h-24 text-[#FFFFFF]/30 animate-floating pointer-events-none" style="transform: rotate(-10deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-            <circle cx="6" cy="6" r="3" stroke-linecap="round" stroke-linejoin="round" />
-            <circle cx="6" cy="18" r="3" stroke-linecap="round" stroke-linejoin="round" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12" />
-        </svg>
-    </div>
+    
+    
 
     <div class="max-w-6xl mx-auto text-center relative z-10 w-full">
-        <h2 class="text-4xl font-extrabold text-[#728BA9] mb-16">Get To Know <span class="text-[#FFFFFF]">Our
+        <h2 class="text-2xl md:text-4xl font-extrabold text-[#728BA9] mb-16">Get To Know <span class="text-[#FFFFFF]">Our
                 Team</span></h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10 perspective-1000">
@@ -742,28 +671,18 @@
 <section
     class="w-full min-h-[50vh] flex flex-col items-center justify-center relative z-10 px-8 py-20 bg-gradient-to-b from-[#728BA9] to-[#BAC7B6] overflow-hidden">
     <!-- Abstract Shapes replaced with surgical doodles -->
-    <div class="absolute top-[15%] left-[5%] w-32 md:w-40 text-white/10 animate-floating pointer-events-none" style="transform: rotate(-15deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10 2.5a1.5 1.5 0 00-3 0v4a5.5 5.5 0 0011 0v-4a1.5 1.5 0 00-3 0" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12.5 12v3a5.5 5.5 0 01-11 0v-2" />
-            <circle cx="10" cy="18" r="4" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-    </div>
-    <div class="absolute bottom-[10%] right-[10%] w-32 md:w-40 text-white/10 animate-floating pointer-events-none" style="transform: rotate(15deg);">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-        </svg>
-    </div>
+    
+    
 
     <div class="max-w-4xl mx-auto flex flex-col justify-center items-center text-center relative z-10">
         <div
-            class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center mb-8 text-white border border-white/30 hover:scale-110 transition-transform animate-floating">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            class="w-14 h-14 md:w-20 md:h-20 bg-white/20 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center mb-8 text-white border border-white/30 hover:scale-110 transition-transform animate-floating">
+            <svg class="w-7 h-7 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
         </div>
-        <h3 class="text-3xl md:text-5xl font-extrabold text-white mb-8 leading-tight">Disclaimer For <span
+        <h3 class="text-[1.75rem] md:text-5xl leading-tight font-extrabold text-white mb-8 leading-tight">Disclaimer For <span
                 class="text-white/70">RuangPulih</span> Users</h3>
         <p class="text-white/90 text-xl leading-relaxed font-medium max-w-3xl">RuangPulih adalah platform panduan dan
             pendamping mandiri, dan tidak bisa mengganti diagnosis serta penanganan medis secara profesional.</p>
@@ -786,7 +705,7 @@
         <div
             class="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-12 relative z-10 bg-white/90 backdrop-blur-xl border border-white shadow-[0_20px_60px_rgba(0,0,0,0.06)] rounded-[3rem] p-12 md:p-16">
             <div class="text-center md:text-left">
-                <h2 class="text-4xl md:text-6xl font-extrabold text-[#728BA9] leading-tight">Ready To Start<br><span
+                <h2 class="text-2xl md:text-4xl md:text-6xl font-extrabold text-[#728BA9] leading-tight">Ready To Start<br><span
                         class="text-[#B8C9DD]">Your Recovery?</span></h2>
             </div>
             <div>
@@ -876,14 +795,14 @@
                 <h4 class="font-extrabold text-[#728BA9] mb-6 text-lg whitespace-nowrap">Ikuti Kami</h4>
                 <div class="flex gap-4">
                     <a href="#"
-                        class="w-10 h-10 rounded-xl bg-[#F8FCFF] shadow-sm flex items-center justify-center text-[#B8C9DD] hover:bg-[#728BA9] hover:text-white transition-all">
+                        class="w-7 h-7 md:w-10 md:h-10 rounded-xl bg-[#F8FCFF] shadow-sm flex items-center justify-center text-[#B8C9DD] hover:bg-[#728BA9] hover:text-white transition-all">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.20 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
                         </svg>
                     </a>
                     <a href="#"
-                        class="w-10 h-10 rounded-xl bg-[#F8FCFF] shadow-sm flex items-center justify-center text-[#B8C9DD] hover:bg-[#728BA9] hover:text-white transition-all">
+                        class="w-7 h-7 md:w-10 md:h-10 rounded-xl bg-[#F8FCFF] shadow-sm flex items-center justify-center text-[#B8C9DD] hover:bg-[#728BA9] hover:text-white transition-all">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />

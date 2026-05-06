@@ -1,5 +1,3 @@
-// Dashboard Render Part 2: Roadmap, Monitoring, WoundLog
-
 function renderRoadmap(opName){
 const phases=PHASES[D.opType]||PHASES.cabg;
 let ci=0;phases.forEach((p,i)=>{if(D.dayPostOp>=p.days[0]&&D.dayPostOp<=p.days[1])ci=i;});

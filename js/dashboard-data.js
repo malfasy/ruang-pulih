@@ -1,8 +1,3 @@
-// ============================================================
-// RuangPulih — Dashboard Logic (Part 1: Data & Init)
-// ============================================================
-
-// Roadmap phase data
 const PHASES = {
 cabg: [
 {id:'p1',name:'Fase Akut',range:'Hari 1 s/d 7',days:[1,7],badge:'Kritis - Rawat Ketat',

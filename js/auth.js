@@ -1,7 +1,3 @@
-// ============================================================
-// RuangPulih — Auth Helpers (Supabase Auth)
-// ============================================================
-
 async function getUser() {
     const { data: { user } } = await _supabase.auth.getUser();
     if (!user) return null;

@@ -1,9 +1,3 @@
--- ============================================================
--- RuangPulih — Supabase PostgreSQL Schema
--- Run this in Supabase SQL Editor (Dashboard > SQL Editor)
--- ============================================================
-
--- 1. Profiles table (extends auth.users with display name)
 CREATE TABLE IF NOT EXISTS profiles (
     id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
     name TEXT NOT NULL DEFAULT '',
@@ -21,7 +15,6 @@ CREATE POLICY "Users can insert own profile"
 CREATE POLICY "Users can update own profile"
     ON profiles FOR UPDATE USING (auth.uid() = id);
 
--- 2. Onboarding data
 CREATE TABLE IF NOT EXISTS user_onboarding (
     id BIGSERIAL PRIMARY KEY,
     user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
@@ -50,25 +43,21 @@ CREATE POLICY "Users can update own onboarding"
 CREATE POLICY "Users can delete own onboarding"
     ON user_onboarding FOR DELETE USING (auth.uid() = user_id);
 
--- 3. Daily monitoring
 CREATE TABLE IF NOT EXISTS user_daily_monitoring (
     id BIGSERIAL PRIMARY KEY,
     user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
     profile_id BIGINT NOT NULL REFERENCES user_onboarding(id) ON DELETE CASCADE,
     record_date DATE NOT NULL,
 
-    -- Generic & CABG
     spo2 INT DEFAULT NULL,
     heart_rate INT DEFAULT NULL,
     pain_level INT DEFAULT NULL,
 
-    -- SC
     temp FLOAT DEFAULT NULL,
     blood_volume VARCHAR(50) DEFAULT NULL,
     blood_color VARCHAR(50) DEFAULT NULL,
     blood_clots VARCHAR(50) DEFAULT NULL,
 
-    -- Orthopedic
     stump_pain INT DEFAULT NULL,
     phantom_pain INT DEFAULT NULL,
     wound_color VARCHAR(50) DEFAULT NULL,
@@ -93,7 +82,6 @@ CREATE POLICY "Users can insert own monitoring"
 CREATE POLICY "Users can update own monitoring"
     ON user_daily_monitoring FOR UPDATE USING (auth.uid() = user_id);
 
--- 4. Wound logs
 CREATE TABLE IF NOT EXISTS user_wound_logs (
     id BIGSERIAL PRIMARY KEY,
     user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
@@ -128,12 +116,10 @@ CREATE POLICY "Users can insert own wound logs"
 CREATE POLICY "Users can update own wound logs"
     ON user_wound_logs FOR UPDATE USING (auth.uid() = user_id);
 
--- 5. Create storage bucket for wound photos
 INSERT INTO storage.buckets (id, name, public)
 VALUES ('wound-photos', 'wound-photos', false)
 ON CONFLICT (id) DO NOTHING;
 
--- Storage policies
 CREATE POLICY "Users can upload own wound photos"
     ON storage.objects FOR INSERT
     WITH CHECK (bucket_id = 'wound-photos' AND auth.uid()::text = (storage.foldername(name))[1]);
@@ -146,7 +132,6 @@ CREATE POLICY "Users can delete own wound photos"
     ON storage.objects FOR DELETE
     USING (bucket_id = 'wound-photos' AND auth.uid()::text = (storage.foldername(name))[1]);
 
--- 6. Function to handle updated_at
 CREATE OR REPLACE FUNCTION update_updated_at_column()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -163,7 +148,6 @@ CREATE TRIGGER update_wound_logs_updated_at
     BEFORE UPDATE ON user_wound_logs
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
--- 7. Auto-create profile on signup (trigger)
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS TRIGGER AS $$
 BEGIN

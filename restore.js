@@ -4,16 +4,13 @@ let headerPhp = fs.readFileSync('medical-web-temp/layout/header.php', 'utf8');
 let indexPhp = fs.readFileSync('medical-web-temp/modules/modul_1/index.php', 'utf8');
 let footerPhp = fs.readFileSync('medical-web-temp/layout/footer.php', 'utf8');
 
-// Combine them (and remove the require_once statements)
 indexPhp = indexPhp.replace(/<\?php\s+require_once\s+__DIR__\s+\.\s+'\/\.\.\/\.\.\/layout\/header\.php';\s+\?>/g, '');
 indexPhp = indexPhp.replace(/<\?php\s+require_once\s+__DIR__\s+\.\s+'\/\.\.\/\.\.\/layout\/footer\.php';\s+\?>/g, '');
 
 let bodyContent = headerPhp + indexPhp + footerPhp;
 
-// Remove PHP tags and PHP specific login logic
 bodyContent = bodyContent.replace(/<\?php[\s\S]*?\?>/g, '');
 
-// Clean up some duplicate HTML tags if any
 bodyContent = bodyContent.replace(/<!DOCTYPE html>.*?<body.*?>/is, `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,13 +29,11 @@ bodyContent = bodyContent.replace(/<!DOCTYPE html>.*?<body.*?>/is, `<!DOCTYPE ht
 <body class="bg-gray-50 antialiased min-h-screen">
 `);
 
-// Add Supabase scripts before closing body
 bodyContent = bodyContent.replace(/<\/body>/, `
 <script src="/js/supabase-config.js"></script>
 <script src="/js/auth.js"></script>
 </body>`);
 
-// Remove inline tailwind, fonts, and style since we moved them
 bodyContent = bodyContent.replace(/<script src="https:\/\/cdn\.tailwindcss\.com"><\/script>/, '');
 bodyContent = bodyContent.replace(/<script>.*?tailwind\.config.*?<\/script>/s, '');
 bodyContent = bodyContent.replace(/<link rel="preconnect" href="https:\/\/fonts\.googleapis\.com">/g, '');
@@ -46,7 +41,6 @@ bodyContent = bodyContent.replace(/<link rel="preconnect" href="https:\/\/fonts\
 bodyContent = bodyContent.replace(/<link href="https:\/\/fonts\.googleapis\.com.*?rel="stylesheet">/g, '');
 bodyContent = bodyContent.replace(/<style>.*?body\s*{.*?font-family:.*?}.*?<\/style>/s, '');
 
-// Replace old scripts with the new unified one
 bodyContent = bodyContent.replace(/<script>[\s\S]*?<\/script>/g, '');
 
 bodyContent += `
