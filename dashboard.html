@@ -27,7 +27,7 @@
 <div class="fixed bottom-0 right-[5%] w-96 h-96 rounded-full pointer-events-none" style="background:rgba(209,217,202,0.15);filter:blur(100px);"></div>
 
 <!-- SIDEBAR -->
-<aside class="hidden md:flex w-64 shrink-0 flex-col sticky top-0 h-screen z-20" style="background:rgba(255,255,255,0.68);backdrop-filter:blur(24px);border-right:1px solid rgba(255,255,255,0.9);box-shadow:4px 0 30px rgba(114,139,169,0.06);">
+<aside class="w-64 shrink-0 flex flex-col sticky top-0 h-screen z-20 dashboard-sidebar" style="background:rgba(255,255,255,0.68);backdrop-filter:blur(24px);border-right:1px solid rgba(255,255,255,0.9);box-shadow:4px 0 30px rgba(114,139,169,0.06);">
 <div class="px-6 py-8 shrink-0">
 <a href="/" class="flex items-center gap-3">
 <img src="/assets/images/Logo.png" alt="logo" class="h-8 opacity-80" style="mix-blend-mode:multiply;">
@@ -51,6 +51,14 @@
 
 <!-- CONTENT -->
 <main class="flex-1 overflow-y-auto h-screen px-4 py-6 md:px-8 md:py-10 pb-24 md:pb-10 relative">
+<!-- MOBILE TOP HEADER (Logo) -->
+<header class="md:hidden sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-white flex justify-center items-center py-4 shadow-sm -mx-4 -mt-6 mb-6">
+    <a href="/" class="flex items-center gap-2">
+        <img src="/assets/images/Logo.png" alt="logo" class="h-6 opacity-80" style="mix-blend-mode:multiply;">
+        <p class="text-lg font-extrabold leading-none" style="color:#728BA9;">Ruang<span style="color:#A3ACA0;">Pulih</span></p>
+    </a>
+</header>
+
 <!-- Red Flag Button -->
 <button id="red-flag-btn" onclick="document.getElementById('rf-modal').classList.remove('hidden');document.getElementById('rf-modal').classList.add('flex');"
 class="fixed bottom-24 right-4 md:bottom-auto md:top-7 md:right-8 z-50 flex items-center gap-2 px-5 py-2.5 rounded-full text-white font-bold text-sm transition-all transform hover:-translate-y-0.5"
